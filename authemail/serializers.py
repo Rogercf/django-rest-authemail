@@ -13,6 +13,8 @@ class SignupSerializer(serializers.Serializer):
                                        required=False)
     last_name = serializers.CharField(max_length=30, default='',
                                       required=False)
+    federative_unit = serializers.CharField(max_length=2, default='',
+                                      required=False)
 
 
 class LoginSerializer(serializers.Serializer):

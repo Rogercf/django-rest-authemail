@@ -32,6 +32,7 @@ class Signup(APIView):
             password = serializer.data['password']
             first_name = serializer.data['first_name']
             last_name = serializer.data['last_name']
+            federative_unit = serializer.data['federative_unit']
 
             must_validate_email = getattr(settings, "AUTH_EMAIL_VERIFICATION", True)
 
@@ -55,6 +56,7 @@ class Signup(APIView):
             user.set_password(password)
             user.first_name = first_name
             user.last_name = last_name
+            user.federative_unit = federative_unit
             if not must_validate_email:
                 user.is_verified = True
                 send_multi_format_email('welcome_email',

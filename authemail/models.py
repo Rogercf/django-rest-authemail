@@ -70,6 +70,8 @@ class EmailAbstractUser(AbstractBaseUser, PermissionsMixin):
         help_text=_('Designates whether this user has completed the email '
                     'verification process to allow login.'))
 
+    federative_unit = models.CharField(blank=True, max_length=2)
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name']
 
