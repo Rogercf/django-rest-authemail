@@ -151,6 +151,8 @@ def send_multi_format_email(template_prefix, template_ctxt, target_email):
     from_email = settings.EMAIL_FROM
     to = target_email
     bcc_email = settings.EMAIL_BCC
+    if template_ctxt:
+        template_ctxt['webapp_url'] = settings.WEBAPP_URL
     text_content = render_to_string(txt_file, template_ctxt)
     html_content = render_to_string(html_file, template_ctxt)
     msg = EmailMultiAlternatives(subject, text_content, from_email, [to],
