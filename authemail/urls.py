@@ -1,8 +1,5 @@
 from django.urls import path
-from rest_framework.urlpatterns import format_suffix_patterns
-
 from authemail import views
-
 
 urlpatterns = [
     path('signup/', views.Signup.as_view(), name='authemail-signup'),
@@ -29,6 +26,3 @@ urlpatterns = [
 
     path('users/me/', views.UserMe.as_view(), name='authemail-me'),
 ]
-
-
-urlpatterns = format_suffix_patterns(urlpatterns)
